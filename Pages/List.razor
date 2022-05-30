@@ -1,0 +1,27 @@
+﻿@page "/list"
+<PageTitle>Auto Animate List - Blazor</PageTitle>
+
+<h1>List</h1>
+
+<div style="padding-bottom: 1rem">
+
+    <button id="add-fruit" class="btn btn-outline-primary" @onclick="AddFruit" disabled="@(!fruitBasket.Any())">Add Fruit</button>
+    <button id="shuffle" class="btn btn-outline-info" @onclick="Shuffle">Shuffle</button>
+
+</div>
+<ul id="list" @ref="listRef">
+    @foreach (var item in items)
+    {
+        <li id="@item" @key="@item">
+            @item
+            <button @onclick="() => RemoveItem(item)" aria-label="Remove Fruit">X</button>
+        </li>
+    }
+</ul>
+
+@*<ul id="list">
+    @foreach (var item in fruitBasket)
+    {
+        <li>@item</li>
+    }
+</ul>*@

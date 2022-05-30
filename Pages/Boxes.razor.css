@@ -1,0 +1,18 @@
+﻿.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em -0.25em 2em -0.25em;
+}
+
+.box {
+    box-sizing: border-box;
+    width: calc(10% - 0.5em);
+    margin: 0.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875em;
+    font-weight: 300;
+    aspect-ratio: 1;
+    border: 1px solid var(--gray-l);
+}

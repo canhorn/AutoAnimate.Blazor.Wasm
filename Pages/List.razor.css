@@ -1,0 +1,44 @@
+﻿ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 300px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75em;
+    background-color: mediumpurple;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    font-size: 0.875em;
+}
+
+[data-dark-mode="true"] li {
+    background-color: var(--purple-md);
+}
+
+li::before {
+    display: none;
+}
+
+li button {
+    appearance: none;
+    border: none;
+    padding: none;
+    margin: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    li button svg {
+        width: 1.2em;
+        fill: red;
+    }
+
+[data-dark-mode="true"] li button svg {
+    fill: rgb(244, 67, 67);
+}

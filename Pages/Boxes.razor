@@ -1,0 +1,30 @@
+﻿@page "/boxes"
+<PageTitle>Auto Animate Boxes - Blazor</PageTitle>
+
+<h1>Boxes</h1>
+
+<div class="example boxes-example">
+    <div>
+        <button class="btn btn-outline-primary" @onclick="Randomize">Randomize</button>
+        <button class="btn btn-outline-primary" @onclick="() => SetDuration(500)">
+            Duration 500
+        </button>
+        <button class="btn btn-outline-primary" @onclick="() => SetDuration(1000)">
+            Duration 1000
+        </button>
+        <button class="btn btn-outline-primary" @onclick="() => SetDuration(2500)">
+            Duration 2500
+        </button>
+
+    </div>
+    <div class="boxes" @ref="_boxes">
+        @foreach (var number in _numbers)
+        {
+            <div class="box"
+             @key="@number">
+                @number
+            </div>
+        }
+    </div>
+</div>
+

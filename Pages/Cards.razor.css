@@ -1,0 +1,61 @@
+﻿.cards {
+    list-style-type: none;
+    padding: 0;
+    margin: 0.5em -0.5em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example {
+    margin-top: 2em;
+}
+
+.card {
+    display: block;
+    padding: 1em;
+    border-radius: 0.5em;
+    background: linear-gradient( to bottom, rgba(0, 0, 255, 0.02), rgba(0, 0, 255, 0.07) );
+    border: 2px solid rgba(0, 0, 255, 0.1);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0.5em;
+}
+
+[data-dark-mode="true"] .card {
+    background: linear-gradient( to bottom, rgba(170, 170, 239, 0.2), rgba(91, 91, 228, 0.1) );
+    border: 2px solid rgba(159, 159, 254, 0.1);
+}
+
+@media (min-width: 38em) {
+    .card {
+        width: calc(50% - 1em);
+        flex: calc(50% - 1em) 0 0;
+    }
+}
+
+@media (min-width: 61em) {
+    .card {
+        width: calc(33% - 3em);
+        flex: calc(33% - 3em) 0 0;
+    }
+}
+
+.title {
+    margin: 0;
+}
+
+.date {
+    color: var(--gray-m);
+    font-weight: 300;
+    font-size: 0.75em;
+    margin-bottom: 1em;
+}
+
+.description {
+    font-size: 0.875em;
+}
+
+.cards li::before {
+    display: none;
+}

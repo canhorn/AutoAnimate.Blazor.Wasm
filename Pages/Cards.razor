@@ -1,0 +1,70 @@
+﻿@page "/cards"
+<PageTitle>Auto Animate Cards - Blazor</PageTitle>
+
+<h1>Cards</h1>
+
+<div @ref="_cardsContainerRef" class="example card-example">
+    <div class="mb-3">
+        <button class="btn btn-primary"
+                disabled="@(_showForm)"
+                @onclick="ShowForm">
+            + Add Event
+        </button>
+    </div>
+    @if (_showForm)
+    {
+        <div class="form">
+            <EditForm class="form" Model="this" OnSubmit="HandleSubmit">
+                <div class="mb-3">
+                    <InputText @ref="_titleRef"
+                        class="form-control"
+                           name="title"
+                           label="Title"
+                           placeholder="Title"
+                           @bind-Value="Title" />
+                </div>
+                <div class="mb-3">
+                    <InputText class="form-control"
+                           name="date"
+                           label="Title"
+                           placeholder="Date"
+                           @bind-Value="Date" />
+                </div>
+                <div class="mb-3">
+                    <InputText class="form-control"
+                           name="description"
+                           type="textarea"
+                           label="Description"
+                           placeholder="Description"
+                           @bind-Value="Description" />
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary"
+                        @click="Submit">
+                        Save
+                    </button>
+                </div>
+            </EditForm>
+        </div>
+    }
+    <button id="shuffle" class="btn btn-outline-info" @onclick="Shuffle">Shuffle</button>
+
+    <ul id="cards" class="cards" @ref="_cardsRef">
+        @foreach (var card in _cards)
+        {
+            <li id="@card.Id" @key="@card.Id" class="card">
+                <h4 class="title">@card.Title</h4>
+                <div class="date">@card.Date</div>
+                <div class="description">@card.Description</div>
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+    private string Title { get; set; } = "New years party";
+    private string Date { get; set; } = "January 1st";
+    private string Description { get; set; } = "We’ll all sing yuletide carols.";
+
+    private InputText _titleRef;
+}
